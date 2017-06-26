@@ -10,10 +10,16 @@ const styles = {
 }
 
 class App extends Component {
+  constructor(){
+    super();
+    const resp = this.fetch('/');
+    console.log(resp);
+  }
+
   render() {
     return (
       <div style={styles.app}>
-        Welcome to React!
+        Welcome to React! coucou
       </div>
     )
   }
