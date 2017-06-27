@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+const {
+  // main component
+  Chart,
+  // graphs
+  Bars, Cloud, Dots, Labels, Lines, Pies, RadialLines, Ticks, Title,
+  // wrappers
+  Layer, Animate, Transform, Handlers,
+  // helpers
+  DropShadow, Gradient, helpers
+} = require('rumble-charts');
+
 class TeamsTable extends Component {
 
   state = {
@@ -98,8 +109,20 @@ class TeamGraph extends Component {
   }
 
   render(){
-    const {rank, logo, team, points} = this.state;
+    const {rank, logo, team, points, played, win, draw, lost,
+            goalsFor, goalsAgainst, goalDifference} = this.state;
     const logo_path = "images/logos/" + logo + ".gif";
+
+    const series = [{
+      data: [parseInt(points, 10),
+             parseInt(played, 10),
+             parseInt(win, 10),
+             parseInt(draw, 10),
+             parseInt(lost, 10),
+             parseInt(goalsFor, 10),
+             parseInt(goalsAgainst, 10),
+             parseInt(goalDifference, 10)]
+    }];
 
     return( <div className="panel panel-default">
               <div className="panel-heading">
@@ -108,7 +131,11 @@ class TeamGraph extends Component {
                   </h3>
                 </div>
               <div className="panel-body">
-                Basic panel example
+
+                <Chart width={400} height={250} series={series} minY={0}>
+                  <Bars />
+                </Chart>
+
               </div>
             </div>
     )
