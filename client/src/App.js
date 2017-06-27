@@ -39,7 +39,8 @@ class App extends Component {
     this.handleSubmitNewTodo = this.handleSubmitNewTodo.bind(this);
 
     fetch('/todos').then(res => res.json())
-              .then(data => this.setState({ todos: data }));
+                   .then(data => this.setState({ todos: data }))
+                   .catch((e) => { console.log("error parsing JSON"); })
   }
 
   handleDelete(index) {
