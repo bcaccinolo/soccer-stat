@@ -2,16 +2,26 @@
 var express = require('express');
 var morgan = require('morgan'); // requests log
 var bodyParser = require('body-parser');
+var jsonfile = require('jsonfile')
+
+var livereload = require('express-livereload')
 
 var app = express();
+
+livereload(app, config={})
+
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 app.todos = ["faire les courses", "aller faire la vidange"];
 
-app.get('/todos', function(req, res){
+app.get('/teams', function(req, res){
 
-  res.json(app.todos);
+  var team_file = './data/table.json'
+  jsonfile.readFile(team_file, function(err, obj) {
+    res.json(obj);
+  })
+
 
 });
 
