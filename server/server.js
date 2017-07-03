@@ -13,8 +13,6 @@ livereload(app, config={})
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-app.todos = ["faire les courses", "aller faire la vidange"];
-
 app.get('/teams', function(req, res){
 
   var team_file = './data/table.json'
