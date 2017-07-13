@@ -1,19 +1,26 @@
 # Server
 
-**TODO: Add description**
+## Description
 
-## Installation
+Small API server in Elixr to test the language.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `server` to your list of dependencies in `mix.exs`:
+## Launch the server
 
-```elixir
-def deps do
-  [{:server, "~> 0.1.0"}]
-end
+```
+mix run --no-halt
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/server](https://hexdocs.pm/server).
+## Launch the server while coding
+
+```
+iex -S mix
+```
+
+## Hot recompiling
+
+```
+iex> r Server
+```
+
+No need to restart anything.
 
